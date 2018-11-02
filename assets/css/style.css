@@ -82,6 +82,7 @@
          width: 150px;    
      }
      #gifInput{
+         font-weight: initial;
          padding:12px;
          height: 40px;
          width: 270px;

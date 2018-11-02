@@ -1,5 +1,6 @@
 $("document").ready(function(){
     var cartoons = ["bugs bunny", "tasmanian devil", "road runner", "tweety", "pepé Le pew"];
+    console.log(cartoons);
 
     // create function that appends the value on the array into screen
     function dynamicButtons(){
@@ -15,14 +16,15 @@ $("document").ready(function(){
             btn.text(cartoons[i]).css("text-transform", "uppercase");
 
             //add favorite symbol
-             var toLove = $('<button>');
-             toLove.attr("data-value", i) // might not need this
-             toLove.addClass("love");
-             toLove.text('♡');
-
-             btn = btn.prepend(toLove);
-
-              //append
+            if(i > 4){
+                var toLove = $('<button>');
+                toLove.attr("data-love", cartoons[i])
+                toLove.addClass("love");
+                toLove.text('♡');
+                btn = btn.prepend(toLove);
+            }
+    
+            //append
               $("#gifButtons").append(btn);
 
         }
@@ -37,6 +39,19 @@ $("document").ready(function(){
         $("#gifInput").val("");
 
     })
+
+   
+    // the value is already in the array make the aray persist... do I need to push it again?
+      $(document).on('click', '.love', function(event){
+          event.preventDefault();
+          var newFavorite = $(this).attr("data-love");
+          if(cartoons.indexOf(newFavorite)===-1){
+            localStorage.setItem("favorite", JSON.stringify(cartoons));
+          }else{
+              alert("this is already in you favorite list")
+          }
+          
+      })
     
     //dysplay images
     function displayGif (){
@@ -87,7 +102,11 @@ $("document").ready(function(){
             }
       })
       
-      $(document).on("click", ".data-gif", displayGif);
-      dynamicButtons();
+    $(document).on("click", ".data-gif", displayGif);
+
+    var cartoons = JSON.parse(localStorage.getItem("favorite"))
+    cartoons.splice(5, 1); 
+
+    dynamicButtons();
     
 })//end of ducument.ready
