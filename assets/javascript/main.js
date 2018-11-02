@@ -22,6 +22,12 @@ $("document").ready(function(){
                 toLove.addClass("love");
                 toLove.text('♡');
                 btn = btn.prepend(toLove);
+
+                var remove = $('<button>');
+                remove.attr("data-remove", i);
+                remove.addClass("delete");
+                remove.text('X');
+                btn = btn.append(remove);
             }
     
             //append
@@ -41,17 +47,25 @@ $("document").ready(function(){
     })
 
    
-    // the value is already in the array make the aray persist... do I need to push it again?
-      $(document).on('click', '.love', function(event){
+    
+    // add favorite to array permanantly  
+    $(document).on('click', '.love', function(event){
           event.preventDefault();
           var newFavorite = $(this).attr("data-love");
-          if(cartoons.indexOf(newFavorite)===-1){
-            localStorage.setItem("favorite", JSON.stringify(cartoons));
-          }else{
-              alert("this is already in you favorite list")
-          }
-          
+          localStorage.setItem("favorite", JSON.stringify(cartoons));
       })
+      
+      //delete favorite
+      $(document).on('click', '.delete', function(event){
+          event.preventDefault();
+          var deleteIndex = $(this).attr("data-remove");
+          cartoons.splice(deleteIndex, 1);
+          dynamicButtons();
+          localStorage.setItem("favorite", JSON.stringify(cartoons));
+      })
+
+
+
     
     //dysplay images
     function displayGif (){
@@ -103,9 +117,9 @@ $("document").ready(function(){
       })
       
     $(document).on("click", ".data-gif", displayGif);
-
-    var cartoons = JSON.parse(localStorage.getItem("favorite"))
-    cartoons.splice(5, 1); 
+    var cartoons = JSON.parse(localStorage.getItem("favorite"));
+     
+    
 
     dynamicButtons();
     

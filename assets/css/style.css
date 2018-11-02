@@ -54,12 +54,21 @@
          padding: 5px;  
      }
 
-     .love{
-        color: gold;
-        background-color: #cc4210;
+     .love,
+     .delete{
+        color:gold;
+        font-size: 30px;
+        background-color: #cc4210;;
         border: 1px solid #cc4210;
+        
+     }
+     .delete{
+         padding: 6px;
+         margin-left: 5px;
+       
      }
 
+    
      #inputLabel,
      #submitBtn,
      #gifInput{
