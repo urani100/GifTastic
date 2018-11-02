@@ -1,5 +1,5 @@
 $("document").ready(function(){
-    var cartoons = ["tom and jerry", "bugs bunny", "road runner", "tweety"];
+    var cartoons = ["bugs bunny", "tasmanian devil", "road runner", "tweety", "pepé Le pew"];
 
     // create function that appends the value on the array into screen
     function dynamicButtons(){
