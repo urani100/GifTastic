@@ -1,0 +1,104 @@
+
+    * { box-sizing: border-box; }
+    body{
+        /* background-image: url("assets/images/background.png"); */
+        background-color: #cc4210;
+    } 
+    .header{
+        padding:90px 0;
+        font-size: 80px;
+        letter-spacing: 8px; 
+        text-shadow: gold 3px 0 20px;
+        font-family: 'Pacifico', cursive;
+        background-color: #cc4210;
+        color:white;
+    }
+    img{
+        height: 450px;
+        width: 450px;
+        padding:20px;
+        border-radius: 50%;
+    }
+     .container-fluid{ 
+         width: 1000px;
+         margin: 0 auto 0 auto;
+     }
+    
+     .cartoon{
+         width: 250px;
+         height: 250px;
+         padding: 2px;
+         border: 3px solid gold; 
+
+     }
+     #gifPlacement{
+         display: flex;
+         flex-wrap: wrap; 
+         margin: 0 auto 0 auto;   
+     }
+     .data-gif{
+         margin-right:8px;
+         margin-bottom:10px;
+         height: 70px; 
+         font-family: 'Shadows Into Light', cursive;
+         font-size: 18px;
+         color: gold;
+         text-align: center; 
+         letter-spacing: 2px;
+         font-weight: bold; 
+         background-color: #cc4210;
+         border: 1px solid gold;
+          border-radius:5px 20px 5px;
+     }
+     .buttonDiv{
+         padding: 5px;  
+     }
+
+     .love{
+        color: gold;
+        background-color: #cc4210;
+        border: 1px solid #cc4210;
+     }
+
+     #inputLabel,
+     #submitBtn,
+     #gifInput{
+         color: gold;
+         font-family: 'Shadows Into Light', cursive;
+         font-size: 30px; 
+         padding:12px;
+         font-weight: bold; 
+         border-radius: 16px;
+     }
+
+     #inputLabel{
+         margin-right:30px;     
+     }
+     #submitBtn{
+         border: 1px solid gold;
+         background-color: #cc4210;
+         color:gold;
+         border-radius:5px 20px 5px;
+         width: 150px;    
+     }
+     #gifInput{
+         padding:12px;
+         height: 40px;
+         width: 270px;
+         margin-right:30px; 
+         border-radius:5px 20px 5px;
+         border: 1px solid gold;
+         background-color: #cc4210;
+     }
+     #form{
+         padding: 20px;
+     }
+     footer{
+         text-align: center;
+         width: 100%;
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         padding: 5px;
+         color:gold;
+     }

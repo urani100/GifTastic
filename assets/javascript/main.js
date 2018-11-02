@@ -13,9 +13,17 @@ $("document").ready(function(){
             btn.attr('data-value', cartoons[i]);
             //label
             btn.text(cartoons[i]).css("text-transform", "uppercase");
-            
-            //append
-             $("#gifButtons").append(btn);
+
+            //add favorite symbol
+             var toLove = $('<button>');
+             toLove.attr("data-value", i) // might not need this
+             toLove.addClass("love");
+             toLove.text('♡');
+
+             btn = btn.prepend(toLove);
+
+              //append
+              $("#gifButtons").append(btn);
 
         }
     }//dynamicButton
