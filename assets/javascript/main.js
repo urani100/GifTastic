@@ -66,10 +66,11 @@ $("document").ready(function(){
       })
 
 
-    //dysplay images using ajax
+    //display images using ajax
     function displayGif (){
         var gif = $(this).attr("data-value"); 
-  
+
+        //intentionally pulling 9 images for esthetic reasons
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=9";
   
         $.ajax({
@@ -77,7 +78,7 @@ $("document").ready(function(){
           method: "GET"
         })
           .then(function(response) {
-            var results = response.data; // an array
+            var results = response.data; 
   
             for (var i = 0; i < results.length; i++) {
                 
@@ -86,9 +87,10 @@ $("document").ready(function(){
               stillState = results[i].images.fixed_height_still.url 
               animateState = results[i].images.fixed_height.url 
              
-              title = results[i].title
-              title=  title.replace("GIF", "")
-              var gifTitle = $("<p>").text(title).css("text-transform", "capitalize");
+              // nice to have but meses up the flow and I have no time to fix... to revisit
+            //   title = results[i].title
+            //   title=  title.replace("GIF", "")
+            //   var gifTitle = $("<p>").text(title).css("text-transform", "capitalize");
             //   gifDiv.append(gifTitle);
   
               var cartoonImage = $("<img>");
@@ -117,7 +119,6 @@ $("document").ready(function(){
       
     $(document).on("click", ".data-gif", displayGif);
     var cartoons = JSON.parse(localStorage.getItem("favorite"));
-    // localStorage.clear();
     dynamicButtons();
     
 })//end of ducument.ready

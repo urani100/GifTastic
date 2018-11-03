@@ -13,8 +13,6 @@
         font-family: 'Pacifico', cursive;
         background-color: #cc4210;
         color:white;
-        /* border: 1px solid blue; */
-    
     }
     img{
         height: 500px;
@@ -133,15 +131,6 @@
      #form{
          padding: 10px;
          margin-left: 100px;
-     }
-     footer{
-         text-align: center;
-         width: 100%;
-         position: absolute;
-         bottom: 0;
-         right: 0; 
-         padding: 5px;
-         color:gold;
      }
 
      .stickyFooter{
