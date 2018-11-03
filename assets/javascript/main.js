@@ -1,6 +1,5 @@
 $("document").ready(function(){
-    var cartoons = ["bugs bunny", "tasmanian devil", "road runner", "tweety", "pepé Le pew"];
-    console.log(cartoons);
+    var cartoons = ["bugs bunny", "tasmanian devil", "road runner", "tweety"];   
 
     // create function that appends the value on the array into screen
     function dynamicButtons(){
@@ -8,7 +7,7 @@ $("document").ready(function(){
         for(var i = 0; i<cartoons.length; i++){
             //create newbutton
             var btn = $("<button>");
-            //give a  class
+            //add a class
             btn.addClass("data-gif");
             // give it an attr value
             btn.attr('data-value', cartoons[i]);
@@ -16,42 +15,44 @@ $("document").ready(function(){
             btn.text(cartoons[i]).css("text-transform", "uppercase");
 
             //add favorite symbol
-            if(i > 4){
+            if(i > 3){
                 var toLove = $('<button>');
                 toLove.attr("data-love", cartoons[i])
                 toLove.addClass("love");
                 toLove.text('♡');
                 btn = btn.prepend(toLove);
-
+                
+                //add delete symbol
                 var remove = $('<button>');
                 remove.attr("data-remove", i);
                 remove.addClass("delete");
                 remove.text('X');
                 btn = btn.append(remove);
             }
-    
             //append
               $("#gifButtons").append(btn);
 
         }
-    }//dynamicButton
+    }
 
-    //create function that add element to arr
+    //create function that adds element to cartoons arr 
     $("#submitBtn").on("click", function(event){
         event.preventDefault();
         var newCartoon = $("#gifInput").val().trim();
-        cartoons.push(newCartoon);
-        dynamicButtons();
-        $("#gifInput").val("");
-
+        //prevent empty string
+        if(newCartoon){
+            cartoons.push(newCartoon);
+            dynamicButtons();
+            $("#gifInput").val("");
+        }
+       
     })
 
-   
-    
     // add favorite to array permanantly  
     $(document).on('click', '.love', function(event){
           event.preventDefault();
           var newFavorite = $(this).attr("data-love");
+          console.log(cartoons.indexOf(newFavorite));
           localStorage.setItem("favorite", JSON.stringify(cartoons));
       })
       
@@ -65,11 +66,9 @@ $("document").ready(function(){
       })
 
 
-
-    
-    //dysplay images
+    //dysplay images using ajax
     function displayGif (){
-        var gif = $(this).attr("data-value"); // attributes for picture buttons
+        var gif = $(this).attr("data-value"); 
   
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=9";
   
@@ -94,17 +93,17 @@ $("document").ready(function(){
   
               var cartoonImage = $("<img>");
               cartoonImage.addClass('cartoon');
-              cartoonImage.attr('data-state', 'still');  //works without it
+              cartoonImage.attr('data-state', 'still');  
               cartoonImage.attr("src", stillState);
               cartoonImage.attr("data-still", stillState);
               cartoonImage.attr("data-animate", animateState);
               gifDiv.prepend(cartoonImage);
-              $("#gifPlacement").prepend(gifDiv); //.css("display", "flex", "flex-wrap, warp");
+              $("#gifPlacement").prepend(gifDiv);
             }
           });
         }
       
-        
+      // still and animate logic  
        $(document).on('click', '.cartoon', function(){
            var state = $(this).attr("data-state"); 
            if(state === 'still'){
@@ -118,9 +117,7 @@ $("document").ready(function(){
       
     $(document).on("click", ".data-gif", displayGif);
     var cartoons = JSON.parse(localStorage.getItem("favorite"));
-     
-    
-
+    // localStorage.clear();
     dynamicButtons();
     
 })//end of ducument.ready

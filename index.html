@@ -16,29 +16,26 @@
 </head>
 
 <body>
-    <div class="row">
-        <div class="col-12 col-md-4" id="picture">
-            <img src="assets/images/background.jpg" alt="looneyToons">
-        </div>
-        <div class="col-12 col-md-8 header">CARTOON MADNESS</div>
+    <div class="row container">
+        <div class="col-12 col-md-5 picture"><img src="assets/images/background.png" alt="looneyToons"></div>
+
+        <div class="col-12 col-md-6 header">CARTOON MADNESS
+            <div class="row" id="form">
+                <label id = "inputLabel" for="gifInput">Add More Cartoons</label>
+                <input id= "gifInput" type="text">
+                <input id="submitBtn" type="submit" value = "ADD">
+            </div> <!-- end of form-->
+
+            <div class="row buttonDiv" id="gifButtons"></div> 
+        </div> <!--end of header-->
         
-    </div> <!--header-->
+    </div> <!--end of container-->
+
     <div class="container-fluid">
-        <div class="row" id="form">
-            <label id = "inputLabel" for="gifInput">Add More Cartoons</label>
-            <input id= "gifInput" type="text">
-            <input id="submitBtn" type="submit" value = "Submit">
-        </div> <!--form-->
-
-        <div class="row buttonDiv"> 
-            <div class="col-12 col-md-10" id="gifButtons"></div> <!--buttons-->
-        </div> 
-
-        <div class="row body"> <!--body-->
-            <div class="col-12 col-md-10" id="gifPlacement"></div> <!---Pix-->
-        </div> 
-        <div class="row"></div> <!--footer-->
+        <div class="col-12 col-md-12" id="gifPlacement"></div> <!---Pix--> 
     </div>
+
+    <div class="row"></div> <!--footer-->
 
 <footer> &copy; Urani</footer> 
 </body>
