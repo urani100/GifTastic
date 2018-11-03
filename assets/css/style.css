@@ -143,3 +143,9 @@
          padding: 5px;
          color:gold;
      }
+
+     .stickyFooter{
+        text-align: center;
+        color: gold;
+        font-family: 'Coming Soon', cursive;
+    }
