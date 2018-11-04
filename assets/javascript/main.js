@@ -43,13 +43,14 @@
         
         event.preventDefault();
         var newCartoon = $("#gifInput").val().trim();
-        alert(newCartoon);
+        
         //prevent empty string
-        if(newCartoon){
+        // if(newCartoon){
             cartoons.push(newCartoon);
+            console.log(cartoons);
             dynamicButtons();
             $("#gifInput").val("");
-        }
+        //}
        
     })
 
