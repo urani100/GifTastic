@@ -1,56 +1,50 @@
  $(document).ready(function(){
-
-    // var cartoons = ["bugs bunny", "tasmanian devil", "road runner", "tweety"];  
-   
-    // create function that appends the value on the array into screen
-    function dynamicButtons(){
-        cartoons = ["bugs bunny", "tasmanian devil", "road runner", "tweety"];  
-        $("#gifButtons").empty();
-        
-        for(var i = 0; i<cartoons.length; i++){
-            //create newbutton
-            var btn = $("<button>");
-            //add a class
-            btn.addClass("data-gif");
-            // give it an attr value
-            btn.attr('data-value', cartoons[i]);
-            //label
-            btn.text(cartoons[i]).css("text-transform", "uppercase");
-
-            //add favorite symbol
-            if(i > 3){
-                var toLove = $('<button>');
-                toLove.attr("data-love", cartoons[i])
-                toLove.addClass("love");
-                toLove.text('♡');
-                btn = btn.prepend(toLove);
-                
-                //add delete symbol
-                var remove = $('<button>');
-                remove.attr("data-remove", i);
-                remove.addClass("delete");
-                remove.text('X');
-                btn = btn.append(remove);
+     var obj= {
+        cartoons: ["bugs bunny", "tasmanian devil", "road runner", "tweety"],
+        // create function that appends the value on the array into screen
+        dynamicButtons: function(){ 
+            $("#gifButtons").empty();
+            for(var i = 0; i<obj.cartoons.length; i++){
+                //create newbutton
+                var btn = $("<button>");
+                //add a class
+                btn.addClass("data-gif");
+                // give it an attr value
+                btn.attr('data-value', obj.cartoons[i]);
+                //label
+                btn.text(obj.cartoons[i]).css("text-transform", "uppercase");
+                //add favorite symbol
+                if(i > 3){
+                    var toLove = $('<button>');
+                    toLove.attr("data-love", obj.cartoons[i])
+                    toLove.addClass("love");
+                    toLove.text('♡');
+                    btn = btn.prepend(toLove);
+                    //add delete symbol
+                    var remove = $('<button>');
+                    remove.attr("data-remove", i);
+                    remove.addClass("delete");
+                    remove.text('X');
+                    btn = btn.append(remove);
+                }
+                //append btn
+                $("#gifButtons").append(btn);
             }
-            //append
-              $("#gifButtons").append(btn);
+        },// end of dynamicButtons
 
-        }
-    }
+     }// end of obj
 
     //create function that adds element to cartoons arr 
-    $("#submitBtn").on("click", function(event){
-        
+    $("#submitBtn").on("click", function(event){ 
         event.preventDefault();
         var newCartoon = $("#gifInput").val().trim();
-        
         //prevent empty string
-        // if(newCartoon){
-            cartoons.push(newCartoon);
-            console.log(cartoons);
-            dynamicButtons();
+         if(newCartoon){
+            obj.cartoons.push(newCartoon);
+            console.log(obj.cartoons);
+            obj.dynamicButtons();
             $("#gifInput").val("");
-        //}
+        }
        
     })
 
@@ -58,17 +52,16 @@
     $(document).on('click', '.love', function(event){
           event.preventDefault();
           var newFavorite = $(this).attr("data-love");
-          console.log(cartoons.indexOf(newFavorite));
-          localStorage.setItem("favorite", JSON.stringify(cartoons));
+          localStorage.setItem("favorite", JSON.stringify(obj.cartoons));
       })
       
       //delete favorite
       $(document).on('click', '.delete', function(event){
           event.preventDefault();
           var deleteIndex = $(this).attr("data-remove");
-          cartoons.splice(deleteIndex, 1);
-          dynamicButtons();
-          localStorage.setItem("favorite", JSON.stringify(cartoons));
+          obj.cartoons.splice(deleteIndex, 1);
+          obj.dynamicButtons();
+          localStorage.setItem("favorite", JSON.stringify(obj.cartoons));
       })
 
 
@@ -124,7 +117,7 @@
       })
       
     $(document).on("click", ".data-gif", displayGif);
-    var cartoons = JSON.parse(localStorage.getItem("favorite"));
-    dynamicButtons();
+    obj.cartoons = JSON.parse(localStorage.getItem("favorite"));
+    obj.dynamicButtons();
     
 })//end of ducument.ready
