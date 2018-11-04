@@ -1,5 +1,5 @@
  //The data persistance works localy (on my laptop) BUT online
- // JSON.parse(localStorage.getItem("favorite")) does not retun an array;
+ // JSON.parse(localStorage.getItem("favorite")) does not return an array;
  // it returns null 
  
  $(document).ready(function(){
