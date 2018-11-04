@@ -121,11 +121,8 @@
       
     $(document).on("click", ".data-gif", displayGif);
 
-    // obj.cartoons = JSON.parse(localStorage.getItem("favorite")); // does not work online?
-   var test =  JSON.parse(window.localStorage.getItem("favorite"));
-   console.log(test);
-
-    // console.log(obj.cartoons, JSON.parse(localStorage.getItem("favorite")));
+    obj.cartoons =  JSON.parse(window.localStorage.getItem("favorite"));
+  
     // if (!Array.isArray(obj.cartoons)) {
     //     
     //   }
