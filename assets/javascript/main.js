@@ -1,4 +1,4 @@
-$("document").ready(function(){
+// $("document").ready(function(){
     var cartoons = ["bugs bunny", "tasmanian devil", "road runner", "tweety"];   
 
     // create function that appends the value on the array into screen
@@ -123,4 +123,4 @@ $("document").ready(function(){
     var cartoons = JSON.parse(localStorage.getItem("favorite"));
     dynamicButtons();
     
-})//end of ducument.ready
+//})//end of ducument.ready
