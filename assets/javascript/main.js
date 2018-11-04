@@ -40,6 +40,7 @@
 
     //create function that adds element to cartoons arr 
     $("#submitBtn").on("click", function(event){
+        alert("hello");
         event.preventDefault();
         var newCartoon = $("#gifInput").val().trim();
         //prevent empty string
