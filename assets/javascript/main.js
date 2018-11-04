@@ -1,3 +1,8 @@
+ //This code works fine localy (on my laptop) BUT ONLINE
+ //I get the following error: jquery.min.js:2 jQuery.Deferred exception: Cannot read property 'length' of null TypeError: Cannot read property 'length' of null
+//It seems that jQuery is not recognizing the  cartoons array
+// I have tried diffrent ways of resolving the problem with any sucess. 
+
  $(document).ready(function(){
      var obj= {
         cartoons: ["bugs bunny", "tasmanian devil", "road runner", "tweety"],
@@ -41,7 +46,6 @@
         //prevent empty string
          if(newCartoon){
             obj.cartoons.push(newCartoon);
-            console.log(obj.cartoons);
             obj.dynamicButtons(obj.cartoons);
             $("#gifInput").val("");
         }
@@ -86,11 +90,11 @@
               stillState = results[i].images.fixed_height_still.url 
               animateState = results[i].images.fixed_height.url 
              
-              // nice to have but meses up the flow and I have no time to fix... to revisit
-            //   title = results[i].title
-            //   title=  title.replace("GIF", "")
-            //   var gifTitle = $("<p>").text(title).css("text-transform", "capitalize");
-            //   gifDiv.append(gifTitle);
+               // nice to have but upsets up the flow and I have no time to fix... might revisit
+               //title = results[i].title
+               //title=  title.replace("GIF", "")
+               // var gifTitle = $("<p>").text(title).css("text-transform", "capitalize");
+               //gifDiv.append(gifTitle);
   
               var cartoonImage = $("<img>");
               cartoonImage.addClass('cartoon');
