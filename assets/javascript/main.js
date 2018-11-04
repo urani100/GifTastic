@@ -1,6 +1,6 @@
- //The data persistance work localy (on my laptop) BUT ONLINE
+ //The data persistance works localy (on my laptop) BUT online
  //the array cartoons is empty once I call:  JSON.parse(localStorage.getItem("favorite")); 
-
+ 
  $(document).ready(function(){
      var obj= {
         cartoons: ["bugs bunny", "tasmanian devil", "road runner", "tweety"],
@@ -120,11 +120,14 @@
       })
       
     $(document).on("click", ".data-gif", displayGif);
-    // obj.cartoons = JSON.parse(localStorage.getItem("favorite")); // does not work online?
+
+     obj.cartoons = JSON.parse(localStorage.getItem("favorite")); // does not work online?
 
     if (!Array.isArray(obj.cartoons)) {
-        obj.cartoons = [];
+        obj.cartoons = obj.cartoons.split(" ");
       }
+
+      console.log(obj.cartoons)
 
     obj.dynamicButtons(obj.cartoons);
     
