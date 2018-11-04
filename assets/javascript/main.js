@@ -122,6 +122,7 @@
     $(document).on("click", ".data-gif", displayGif);
 
     obj.cartoons =  JSON.parse(window.localStorage.getItem("favorite"));
+    console.log(obj.cartoons);
   
     // if (!Array.isArray(obj.cartoons)) {
     //     
