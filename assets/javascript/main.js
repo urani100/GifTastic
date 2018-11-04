@@ -5,6 +5,8 @@ $("document").ready(function(){
     function dynamicButtons(){
         $("#gifButtons").empty();
         for(var i = 0; i<cartoons.length; i++){
+            console.log(cartoons.length);
+            console.log(Array.isArray(cartoons));
             //create newbutton
             var btn = $("<button>");
             //add a class
