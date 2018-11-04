@@ -1,14 +1,12 @@
  //This code works fine localy (on my laptop) BUT ONLINE
- //I get the following error: jquery.min.js:2 jQuery.Deferred exception: Cannot read property 'length' of null TypeError: Cannot read property 'length' of null
-//It seems that jQuery is not recognizing the  cartoons array
-// I have tried diffrent ways of resolving the problem with any sucess. 
+ //the array cartoons is empty once I call:  JSON.parse(localStorage.getItem("favorite")); 
 
  $(document).ready(function(){
      var obj= {
         cartoons: ["bugs bunny", "tasmanian devil", "road runner", "tweety"],
         // create function that appends the value on the array into screen
         dynamicButtons: function(arr){ 
-            // debugger;
+            
             $("#gifButtons").empty();
             for(var i = 0; i <arr.length; i++){
                 //create newbutton
@@ -43,6 +41,7 @@
     //create function that adds element to cartoons arr 
     $("#submitBtn").on("click", function(event){ 
         event.preventDefault();
+        debugger;
         var newCartoon = $("#gifInput").val().trim();
         //prevent empty string
          if(newCartoon){
@@ -122,12 +121,14 @@
       })
       
     $(document).on("click", ".data-gif", displayGif);
-    obj.cartoons = JSON.parse(localStorage.getItem("favorite"));
+    // obj.cartoons = JSON.parse(localStorage.getItem("favorite"));
 
     if (!Array.isArray(obj.cartoons)) {
         obj.cartoons = [];
       }
-    console.log(Array.isArray(obj.cartoons), obj.cartoons);
+
+   console.log(Array.isArray(obj.cartoons), obj.cartoons);
+   
     obj.dynamicButtons(obj.cartoons);
     
 })//end of ducument.ready
