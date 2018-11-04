@@ -41,7 +41,6 @@
     //create function that adds element to cartoons arr 
     $("#submitBtn").on("click", function(event){ 
         event.preventDefault();
-        debugger;
         var newCartoon = $("#gifInput").val().trim();
         //prevent empty string
          if(newCartoon){
@@ -52,14 +51,14 @@
        
     })
 
-    // add favorite to array permanantly  
+    // add favorite to array permanantly (works locally once line 123, JSON.parse(localStorage.getItem("favorite")), is un-commented)
     $(document).on('click', '.love', function(event){
           event.preventDefault();
           var newFavorite = $(this).attr("data-love");
           localStorage.setItem("favorite", JSON.stringify(obj.cartoons));
       })
       
-      //delete favorite
+      //delete favorite (works locally once line 123, JSON.parse(localStorage.getItem("favorite")), is un-commented)
       $(document).on('click', '.delete', function(event){
           event.preventDefault();
           var deleteIndex = $(this).attr("data-remove");
@@ -121,14 +120,12 @@
       })
       
     $(document).on("click", ".data-gif", displayGif);
-    // obj.cartoons = JSON.parse(localStorage.getItem("favorite"));
+    // obj.cartoons = JSON.parse(localStorage.getItem("favorite")); // does not work online?
 
     if (!Array.isArray(obj.cartoons)) {
         obj.cartoons = [];
       }
-
-   console.log(Array.isArray(obj.cartoons), obj.cartoons);
-   
+      
     obj.dynamicButtons(obj.cartoons);
     
 })//end of ducument.ready
