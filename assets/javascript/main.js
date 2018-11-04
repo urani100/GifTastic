@@ -1,6 +1,6 @@
  //The data persistance works localy (on my laptop) BUT online
  // JSON.parse(localStorage.getItem("favorite")) does not retun an array;
- // it retuns null 
+ // it returns null 
  
  $(document).ready(function(){
      var obj= {
@@ -123,7 +123,6 @@
     $(document).on("click", ".data-gif", displayGif);
 
     // obj.cartoons =  JSON.parse(window.localStorage.getItem("favorite")); // returns null
-    
     // if (!Array.isArray(obj.cartoons)) {
     //     
     //   }
