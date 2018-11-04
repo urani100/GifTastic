@@ -5,6 +5,7 @@
 
     // create function that appends the value on the array into screen
     function dynamicButtons(){
+        debugger;
         $("#gifButtons").empty();
         for(var i = 0; i<cartoons.length; i++){
             //create newbutton
