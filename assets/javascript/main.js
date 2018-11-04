@@ -1,4 +1,4 @@
- //This code works fine localy (on my laptop) BUT ONLINE
+ //The data persistance work localy (on my laptop) BUT ONLINE
  //the array cartoons is empty once I call:  JSON.parse(localStorage.getItem("favorite")); 
 
  $(document).ready(function(){
@@ -125,7 +125,7 @@
     if (!Array.isArray(obj.cartoons)) {
         obj.cartoons = [];
       }
-      
+
     obj.dynamicButtons(obj.cartoons);
     
 })//end of ducument.ready
