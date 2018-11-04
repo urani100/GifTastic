@@ -1,4 +1,5 @@
  $(document).ready(function(){
+
     var cartoons = ["bugs bunny", "tasmanian devil", "road runner", "tweety"];  
    
     // create function that appends the value on the array into screen
