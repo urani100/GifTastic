@@ -1,9 +1,10 @@
  $(document).ready(function(){
 
-    var cartoons = ["bugs bunny", "tasmanian devil", "road runner", "tweety"];  
+    // var cartoons = ["bugs bunny", "tasmanian devil", "road runner", "tweety"];  
    
     // create function that appends the value on the array into screen
     function dynamicButtons(){
+        cartoons = ["bugs bunny", "tasmanian devil", "road runner", "tweety"];  
         $("#gifButtons").empty();
         
         for(var i = 0; i<cartoons.length; i++){
