@@ -123,12 +123,15 @@
 
      obj.cartoons = JSON.parse(localStorage.getItem("favorite")); // does not work online?
 
+     console.log(obj.cartoons, (!Array.isArray(obj.cartoons)));
+
     if (!Array.isArray(obj.cartoons)) {
-        obj.cartoons = obj.cartoons.split(" ");
+        obj.cartoons = []; // I am setting the array to be empty?
       }
 
-      console.log(obj.cartoons)
+      console.log(obj.cartoons, (!Array.isArray(obj.cartoons)));
 
     obj.dynamicButtons(obj.cartoons);
+    
     
 })//end of ducument.ready
