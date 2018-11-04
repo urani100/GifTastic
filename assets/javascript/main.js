@@ -121,17 +121,16 @@
       
     $(document).on("click", ".data-gif", displayGif);
 
-     obj.cartoons = JSON.parse(localStorage.getItem("favorite")); // does not work online?
+    console.log(obj.cartoons, JSON.parse(localStorage.getItem("favorite")));
 
-     console.log(obj.cartoons, (!Array.isArray(obj.cartoons)));
+    //  obj.cartoons = JSON.parse(localStorage.getItem("favorite")); // does not work online?
 
+    
     if (!Array.isArray(obj.cartoons)) {
-        obj.cartoons = []; // I am setting the array to be empty?
+        obj.cartoons = []; // I am setting the array to be empty? yes I am!!!
       }
 
-      console.log(obj.cartoons, (!Array.isArray(obj.cartoons)));
-
     obj.dynamicButtons(obj.cartoons);
-    
+
     
 })//end of ducument.ready
