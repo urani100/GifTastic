@@ -1,8 +1,6 @@
- $("document").ready(function(){
+ $(document).ready(function(){
     var cartoons = ["bugs bunny", "tasmanian devil", "road runner", "tweety"];  
-    // console.log(Array.isArray(cartoons)); 
-    // console.log(cartoons.length);
-
+   
     // create function that appends the value on the array into screen
     function dynamicButtons(){
         $("#gifButtons").empty();
