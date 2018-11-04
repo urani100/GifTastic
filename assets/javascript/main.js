@@ -8,6 +8,7 @@
         cartoons: ["bugs bunny", "tasmanian devil", "road runner", "tweety"],
         // create function that appends the value on the array into screen
         dynamicButtons: function(arr){ 
+            // debugger;
             $("#gifButtons").empty();
             for(var i = 0; i <arr.length; i++){
                 //create newbutton
@@ -126,6 +127,7 @@
     if (!Array.isArray(obj.cartoons)) {
         obj.cartoons = [];
       }
+    console.log(Array.isArray(obj.cartoons), obj.cartoons);
     obj.dynamicButtons(obj.cartoons);
     
 })//end of ducument.ready
