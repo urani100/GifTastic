@@ -1,12 +1,12 @@
-// $("document").ready(function(){
-    var cartoons = ["bugs bunny", "tasmanian devil", "road runner", "tweety"];   
+ $("document").ready(function(){
+    var cartoons = ["bugs bunny", "tasmanian devil", "road runner", "tweety"];  
+    console.log(Array.isArray(cartoons)); 
+    console.log(cartoons.length);
 
     // create function that appends the value on the array into screen
     function dynamicButtons(){
         $("#gifButtons").empty();
         for(var i = 0; i<cartoons.length; i++){
-            console.log(cartoons.length);
-            console.log(Array.isArray(cartoons));
             //create newbutton
             var btn = $("<button>");
             //add a class
@@ -123,4 +123,4 @@
     var cartoons = JSON.parse(localStorage.getItem("favorite"));
     dynamicButtons();
     
-//})//end of ducument.ready
+})//end of ducument.ready
