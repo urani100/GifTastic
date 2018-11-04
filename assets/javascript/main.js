@@ -1,5 +1,6 @@
  //The data persistance works localy (on my laptop) BUT online
- //the array cartoons is empty once I call:  JSON.parse(localStorage.getItem("favorite")); 
+ // JSON.parse(localStorage.getItem("favorite")) does not retun an array;
+ // it retuns null 
  
  $(document).ready(function(){
      var obj= {
