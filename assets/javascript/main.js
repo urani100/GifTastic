@@ -4,7 +4,7 @@
     // console.log(cartoons.length);
 
     // create function that appends the value on the array into screen
-    function dynamicButtons(){
+    function dynamicButtons(cartoons){
         $("#gifButtons").empty();
         
         for(var i = 0; i<cartoons.length; i++){
@@ -45,7 +45,7 @@
         //prevent empty string
         if(newCartoon){
             cartoons.push(newCartoon);
-            dynamicButtons();
+            dynamicButtons(cartoons);
             $("#gifInput").val("");
         }
        
@@ -64,7 +64,7 @@
           event.preventDefault();
           var deleteIndex = $(this).attr("data-remove");
           cartoons.splice(deleteIndex, 1);
-          dynamicButtons();
+          dynamicButtons(cartoons);
           localStorage.setItem("favorite", JSON.stringify(cartoons));
       })
 
@@ -122,6 +122,6 @@
       
     $(document).on("click", ".data-gif", displayGif);
     var cartoons = JSON.parse(localStorage.getItem("favorite"));
-    dynamicButtons();
+    dynamicButtons(cartoons);
     
 })//end of ducument.ready
