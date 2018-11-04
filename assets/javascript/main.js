@@ -7,20 +7,21 @@
     function dynamicButtons(){
         debugger;
         $("#gifButtons").empty();
-        cartoons.forEach(function(element){
+        
+        for(var i = 0; i<cartoons.length; i++){
             //create newbutton
             var btn = $("<button>");
             //add a class
             btn.addClass("data-gif");
             // give it an attr value
-            btn.attr('data-value', element);
+            btn.attr('data-value', cartoons[i]);
             //label
-            btn.text(element).css("text-transform", "uppercase");
+            btn.text(cartoons[i]).css("text-transform", "uppercase");
 
             //add favorite symbol
             if(i > 3){
                 var toLove = $('<button>');
-                toLove.attr("data-love", element)
+                toLove.attr("data-love", cartoons[i])
                 toLove.addClass("love");
                 toLove.text('♡');
                 btn = btn.prepend(toLove);
@@ -35,36 +36,7 @@
             //append
               $("#gifButtons").append(btn);
 
-        })
-        // for(var i = 0; i<cartoons.length; i++){
-        //     //create newbutton
-        //     var btn = $("<button>");
-        //     //add a class
-        //     btn.addClass("data-gif");
-        //     // give it an attr value
-        //     btn.attr('data-value', cartoons[i]);
-        //     //label
-        //     btn.text(cartoons[i]).css("text-transform", "uppercase");
-
-        //     //add favorite symbol
-        //     if(i > 3){
-        //         var toLove = $('<button>');
-        //         toLove.attr("data-love", cartoons[i])
-        //         toLove.addClass("love");
-        //         toLove.text('♡');
-        //         btn = btn.prepend(toLove);
-                
-        //         //add delete symbol
-        //         var remove = $('<button>');
-        //         remove.attr("data-remove", i);
-        //         remove.addClass("delete");
-        //         remove.text('X');
-        //         btn = btn.append(remove);
-        //     }
-        //     //append
-        //       $("#gifButtons").append(btn);
-
-        // }
+        }
     }
 
     //create function that adds element to cartoons arr 
