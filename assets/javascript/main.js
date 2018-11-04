@@ -7,7 +7,7 @@
     function dynamicButtons(){
         $("#gifButtons").empty();
         
-        for(var i = 0; i<3; i++){
+        for(var i = 0; i<cartoons.length; i++){
             //create newbutton
             var btn = $("<button>");
             //add a class
