@@ -121,9 +121,8 @@
       
     $(document).on("click", ".data-gif", displayGif);
 
-    obj.cartoons =  JSON.parse(window.localStorage.getItem("favorite"));
-    console.log(obj.cartoons);
-  
+    // obj.cartoons =  JSON.parse(window.localStorage.getItem("favorite")); // returns null
+    
     // if (!Array.isArray(obj.cartoons)) {
     //     
     //   }
