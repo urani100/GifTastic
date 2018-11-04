@@ -122,6 +122,10 @@
       
     $(document).on("click", ".data-gif", displayGif);
     obj.cartoons = JSON.parse(localStorage.getItem("favorite"));
+
+    if (!Array.isArray(obj.cartoons)) {
+        obj.cartoons = [];
+      }
     obj.dynamicButtons(obj.cartoons);
     
 })//end of ducument.ready
