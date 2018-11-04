@@ -2,21 +2,21 @@
      var obj= {
         cartoons: ["bugs bunny", "tasmanian devil", "road runner", "tweety"],
         // create function that appends the value on the array into screen
-        dynamicButtons: function(){ 
+        dynamicButtons: function(arr){ 
             $("#gifButtons").empty();
-            for(var i = 0; i<obj.cartoons.length; i++){
+            for(var i = 0; i <arr.length; i++){
                 //create newbutton
                 var btn = $("<button>");
                 //add a class
                 btn.addClass("data-gif");
                 // give it an attr value
-                btn.attr('data-value', obj.cartoons[i]);
+                btn.attr('data-value', arr[i]);
                 //label
-                btn.text(obj.cartoons[i]).css("text-transform", "uppercase");
+                btn.text(arr[i]).css("text-transform", "uppercase");
                 //add favorite symbol
                 if(i > 3){
                     var toLove = $('<button>');
-                    toLove.attr("data-love", obj.cartoons[i])
+                    toLove.attr("data-love", arr[i])
                     toLove.addClass("love");
                     toLove.text('♡');
                     btn = btn.prepend(toLove);
@@ -42,7 +42,7 @@
          if(newCartoon){
             obj.cartoons.push(newCartoon);
             console.log(obj.cartoons);
-            obj.dynamicButtons();
+            obj.dynamicButtons(obj.cartoons);
             $("#gifInput").val("");
         }
        
@@ -60,7 +60,7 @@
           event.preventDefault();
           var deleteIndex = $(this).attr("data-remove");
           obj.cartoons.splice(deleteIndex, 1);
-          obj.dynamicButtons();
+          obj.dynamicButtons(obj.cartoons);
           localStorage.setItem("favorite", JSON.stringify(obj.cartoons));
       })
 
@@ -118,6 +118,6 @@
       
     $(document).on("click", ".data-gif", displayGif);
     obj.cartoons = JSON.parse(localStorage.getItem("favorite"));
-    obj.dynamicButtons();
+    obj.dynamicButtons(obj.cartoons);
     
 })//end of ducument.ready
