@@ -1,6 +1,3 @@
- //The data persistance works localy (on my laptop) BUT online
- // JSON.parse(localStorage.getItem("favorite")) does not return an array;
- // it returns null 
  
  $(document).ready(function(){
      var obj= {
@@ -52,14 +49,14 @@
        
     })
 
-    // add favorite to array permanantly (works locally once line 123, JSON.parse(localStorage.getItem("favorite")), is un-commented)
+   //click to add to favorite
     $(document).on('click', '.love', function(event){
           event.preventDefault();
           var newFavorite = $(this).attr("data-love");
           localStorage.setItem("favorite", JSON.stringify(obj.cartoons));
       })
       
-      //delete favorite (works locally once line 123, JSON.parse(localStorage.getItem("favorite")), is un-commented)
+      //click on to delete favorite
       $(document).on('click', '.delete', function(event){
           event.preventDefault();
           var deleteIndex = $(this).attr("data-remove");
